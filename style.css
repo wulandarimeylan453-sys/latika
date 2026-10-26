@@ -14,7 +14,6 @@ body {
     
     /* PENGATURAN BACKGROUND GAMBAR */
     background-image: url('kimia.asik.jpeg'); /* Ganti sesuai nama file gambar Anda di GitHub */
-    background-size: cover;              /* Agar gambar menyesuaikan dan memenuhi layar */
     background-position: center;         /* Posisi gambar di tengah */
     background-repeat: no-repeat;        /* Agar tidak mengulang gambar */
     background-attachment: fixed;        /* Latar belakang tetap diam saat di-scroll */
