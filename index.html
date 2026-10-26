@@ -3,39 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konversi Suhu Terpisah</title>
-    <!-- Menghubungkan file CSS -->
+    <title>Kalkulator Konversi Suhu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-    <h2>Konversi Suhu</h2>
-    <div class="form-group">
-        <label for="nilai">Nilai Suhu:</label>
-        <input type="number" id="nilai" placeholder="Masukkan angka">
-    </div>
-    <div class="form-group">
-        <label for="satuan">Satuan Asal:</label>
-        <select id="satuan">
-            <option value="C">Celsius (°C)</option>
-            <option value="F">Fahrenheit (°F)</option>
-            <option value="R">Reamur (°R)</option>
-            <option value="K">Kelvin (K)</option>
-        </select>
-    </div>
-    <button onclick="konversi()">Hitung</button>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <span class="icon" id="temp-icon">🌡️</span>
+                <h1>Konversi Suhu</h1>
+                <p>Masukkan nilai suhu untuk melihat hasil konversi lengkap</p>
+            </div>
 
-    <div class="result" id="hasil" style="display: none;">
-        <strong>Hasil Konversi:</strong>
-        <p id="res-c">-</p>
-        <p id="res-r">-</p>
-        <p id="res-f">-</p>
-        <p id="res-k">-</p>
-    </div>
-</div>
+            <div class="form-group">
+                <label for="nilai">Nilai Suhu</label>
+                <input type="number" id="nilai" placeholder="Contoh: 36" step="any">
+            </div>
 
-<!-- Menghubungkan file JavaScript -->
-<script src="script.js"></script>
+            <div class="form-group">
+                <label for="satuan">Satuan Asal</label>
+                <select id="satuan">
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="R">Reamur (°R)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+            </div>
+
+            <button type="button" id="btn-hitungs">Hitung Konversi</button>
+
+            <!-- Area Hasil -->
+            <div class="result-box" id="result-box">
+                <div class="status-badge" id="status-badge">Netral</div>
+                <h3>Hasil Konversi</h3>
+                
+                <div class="grid-result">
+                    <div class="result-item">
+                        <span class="label">Celsius</span>
+                        <span class="value" id="res-c">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Fahrenheit</span>
+                        <span class="value" id="res-f">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Reamur</span>
+                        <span class="value" id="res-r">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Kelvin</span>
+                        <span class="value" id="res-k">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
