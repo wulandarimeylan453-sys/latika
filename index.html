@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Suhu Interaktif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+        h2 { text-align: center; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #555; }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background-color: #0056b3; }
+        .result {
+            margin-top: 20px;
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Konversi Suhu</h2>
+    <div class="form-group">
+        <label for="nilai">Nilai Suhu:</label>
+        <input type="number" id="nilai" placeholder="Masukkan angka">
+    </div>
+    <div class="form-group">
+        <label for="satuan">Satuan Asal:</label>
+        <select id="satuan">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+            <option value="R">Reamur (°R)</option>
+            <option value="K">Kelvin (K)</option>
+        </select>
+    </div>
+    <button onclick="konversi()">Hitung</button>
+
+    <div class="result" id="hasil" style="display: none;">
+        <strong>Hasil Konversi:</strong>
+        <p id="res-c">-</p>
+        <p id="res-r">-</p>
+        <p id="res-f">-</p>
+        <p id="res-k">-</p>
+    </div>
+</div>
+
+<script>
+function konversi() {
+    let nilai = parseFloat(document.getElementById('nilai').value);
+    let satuan = document.getElementById('satuan').value;
+
+    if (isNaN(nilai)) {
+        alert("Masukkan angka yang valid!");
+        return;
+    }
+
+    let c = 0;
+    if (satuan === 'C') c = nilai;
+    else if (satuan === 'F') c = (nilai - 32) * 5/9;
+    else if (satuan === 'R') c = nilai * 5/4;
+    else if (satuan === 'K') c = nilai - 273.15;
+
+    let r = c * 4/5;
+    let f = (c * 9/5) + 32;
+    let k = c + 273.15;
+
+    document.getElementById('res-c').innerText = `Celsius: ${c.toFixed(2)} °C`;
+    document.getElementById('res-r').innerText = `Reamur: ${r.toFixed(2)} °R`;
+    document.getElementById('res-f').innerText = `Fahrenheit: ${f.toFixed(2)} °F`;
+    document.getElementById('res-k').innerText = `Kelvin: ${k.toFixed(2)} K`;
+
+    document.getElementById('hasil').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
