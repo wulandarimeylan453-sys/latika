@@ -12,25 +12,27 @@ body {
     align-items: center;
     padding: 20px;
     
-    /* Menggunakan file kimia.asik sebagai latar belakang dengan efek transparan gelap agar teks tetap jelas dibaca */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('kimia.asik');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* PENGATURAN BACKGROUND GAMBAR */
+    background-image: url('kimia.asik'); /* Ganti sesuai nama file gambar Anda di GitHub */
+    background-size: cover;              /* Agar gambar menyesuaikan dan memenuhi layar */
+    background-position: center;         /* Posisi gambar di tengah */
+    background-repeat: no-repeat;        /* Agar tidak mengulang gambar */
+    background-attachment: fixed;        /* Latar belakang tetap diam saat di-scroll */
 }
 
 .container {
     width: 100%;
     max-width: 420px;
+    position: relative;
+    z-index: 1;                          /* Memastikan kartu selalu di depan background */
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92); /* Background kartu agak transparan */
+    backdrop-filter: blur(8px);           /* Efek blur transparan */
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .header {
@@ -105,7 +107,7 @@ button:active {
     transform: translateY(0);
 }
 
-/* Hasil */
+/* Area Hasil */
 .result-box {
     margin-top: 25px;
     padding-top: 20px;
